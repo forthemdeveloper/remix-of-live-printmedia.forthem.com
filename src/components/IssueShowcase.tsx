@@ -152,7 +152,7 @@ const IssueShowcase = () => {
         {/* One soft CTA after the showcase */}
         <div className="text-center mt-16 md:mt-24">
           <p className="text-lg md:text-xl font-body3 text-brand-black mb-1">
-            Every issue, delivered. Plus the full back catalogue.
+            Every new issue, delivered to your door. Members get the back catalogue at a discount.
           </p>
           <p className="text-sm font-mono uppercase tracking-wider text-muted-foreground mb-6">
             $8.17/mo · billed annually · cancel anytime
