@@ -31,10 +31,10 @@ const SocialProof = () => {
   ];
 
   return (
-    <section className="py-10 md:py-14 bg-destructive">
+    <section className="py-10 md:py-14 bg-[#f5f1e6]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-6 md:mb-8">
-          <h2 className="text-3xl md:text-5xl font-black tracking-tight text-white">
+          <h2 className="text-3xl md:text-5xl font-black tracking-tight text-brand-black">
             What Members Are Saying
           </h2>
         </div>
@@ -49,7 +49,7 @@ const SocialProof = () => {
               <CarouselItem key={index} className="sm:basis-1/2 md:basis-1/3">
                 <div className="bg-white rounded-none p-5 border border-stone-300 h-full flex flex-col">
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="uppercase tracking-wide font-mono font-extralight text-xs text-destructive">
+                    <span className="uppercase tracking-wide font-mono font-extralight text-xs text-[#ff5b8a]">
                       {testimonial.name}
                     </span>
                     <div className="flex items-center gap-1">
@@ -65,8 +65,8 @@ const SocialProof = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="bg-white text-destructive border-none hover:bg-white/80" />
-          <CarouselNext className="bg-white text-destructive border-none hover:bg-white/80" />
+          <CarouselPrevious className="bg-brand-black text-white border-none hover:bg-white/80" />
+          <CarouselNext className="bg-brand-black text-white border-none hover:bg-white/80" />
         </Carousel>
       </div>
     </section>

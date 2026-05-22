@@ -28,7 +28,7 @@ const CreatorVideos = () => {
   }, []);
 
   return (
-    <section className="py-10 md:py-16 bg-brand-black">
+    <section className="py-10 md:py-16 bg-[#0a0029]">
       <div className="container mx-auto px-4">
         <h2 className="text-xl md:text-4xl font-black text-white text-center mb-6 md:mb-8 font-body3">
           Your Fav Queer Creators Love It

@@ -49,13 +49,13 @@ const TikTokSection = () => {
   }, []);
 
   return (
-    <section className="py-16 bg-brand-grass">
+    <section className="py-16 bg-[#f5f1e6]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-black text-brand-grass-foreground mb-4">
+          <h2 className="text-4xl md:text-5xl font-black text-brand-black mb-4">
             See What Everyone's Talking About
           </h2>
-          <p className="text-xl text-brand-grass-foreground/90 max-w-2xl mx-auto font-mono">
+          <p className="text-xl text-brand-black/70 max-w-2xl mx-auto font-mono">
             Our zine is making waves on TikTok
           </p>
         </div>

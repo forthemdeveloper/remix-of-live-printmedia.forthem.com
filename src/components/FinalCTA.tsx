@@ -5,7 +5,7 @@ import { startCheckout } from "@/lib/checkout";
 
 const FinalCTA = () => {
   return (
-    <section className="py-20 bg-brand-black text-white relative overflow-hidden">
+    <section className="py-20 bg-[#0a0029] text-white relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-brand-grass/5 to-issue-01/10"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">

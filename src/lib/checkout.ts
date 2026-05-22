@@ -6,7 +6,7 @@ const ISSUE_02 = "56214999859366";
 const STICKER_PACK = "46400215023782";
 
 const utm = (campaign: string) =>
-  `%3Futm_source%3Dprintmedia%26utm_medium%3Dlanding_page%26utm_campaign%3D${campaign}`;
+  `%3Futm_source%3Dpresell%26utm_medium%3Dlanding_page%26utm_campaign%3D${campaign}`;
 
 export const CART_URLS = {
   annual: `https://forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D${AF_PLUS_PRODUCT}%26items%5B0%5D%5Bselling_plan%5D%3D${PLAN_ANNUAL}%26items%5B0%5D%5Bquantity%5D%3D1%26items%5B1%5D%5Bid%5D%3D${ISSUE_02}%26items%5B1%5D%5Bquantity%5D%3D1%26items%5B2%5D%5Bid%5D%3D${STICKER_PACK}%26items%5B2%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout${utm("annual_membership")}`,
@@ -37,28 +37,28 @@ export function startCheckout(plan: Plan, buttonLocation: string) {
   const url = CART_URLS[plan];
 
   try {
-    window.posthog?.capture("printmedia_cta_clicked", {
+    window.posthog?.capture("presell_cta_clicked", {
       position: buttonLocation,
       plan,
-      page: "printmedia",
+      page: "presell",
       value: meta.value,
     });
 
-    // GA4: site-specific event name so PrintMedia / ZineMedia separate cleanly in reports
-    window.gtag?.("event", "printmedia_signup_intent", {
+    // GA4: site-specific event name so PreSell / ZineMedia separate cleanly in reports
+    window.gtag?.("event", "presell_signup_intent", {
       currency: "USD",
       value: meta.value,
       plan_type: plan === "zineOnly" ? "zine-only" : "all-access",
       billing_cycle: plan,
       button_location: buttonLocation,
-      source_page: "printmedia_landing",
+      source_page: "presell_landing",
     });
 
-    // Meta Pixel: standard events for ad optimization + custom event for PrintMedia-only audiences
+    // Meta Pixel: standard events for ad optimization + custom event for PreSell-only audiences
     window.fbq?.("track", "AddToCart", {
       content_ids: meta.contentIds,
       content_type: "product",
-      content_category: `printmedia_${plan === "zineOnly" ? "magazine" : "membership"}`,
+      content_category: `presell_${plan === "zineOnly" ? "magazine" : "membership"}`,
       value: meta.value,
       currency: "USD",
     });
@@ -66,9 +66,9 @@ export function startCheckout(plan: Plan, buttonLocation: string) {
       value: meta.value,
       currency: "USD",
       num_items: meta.numItems,
-      content_category: `printmedia_${plan}`,
+      content_category: `presell_${plan}`,
     });
-    window.fbq?.("trackCustom", "PrintMediaSignupIntent", {
+    window.fbq?.("trackCustom", "PreSellSignupIntent", {
       plan,
       value: meta.value,
       currency: "USD",
@@ -76,29 +76,29 @@ export function startCheckout(plan: Plan, buttonLocation: string) {
     });
 
     // Klaviyo: keep standard "Started Checkout" so abandonment flow still fires,
-    // AND fire a PrintMedia-specific custom event for site-targeted flows/segments.
+    // AND fire a PreSell-specific custom event for site-targeted flows/segments.
     window._learnq?.push([
       "track",
       "Started Checkout",
       {
-        $event_id: `printmedia_${buttonLocation}_${Date.now()}`,
+        $event_id: `presell_${buttonLocation}_${Date.now()}`,
         $value: meta.value,
         ItemNames: meta.itemNames,
         Categories: [plan === "zineOnly" ? "Magazine" : "Membership"],
         CheckoutURL: url,
-        source: "printmedia_landing",
+        source: "presell_landing",
         plan,
         button_location: buttonLocation,
       },
     ]);
     window._learnq?.push([
       "track",
-      "PrintMedia Signup Intent",
+      "PreSell Signup Intent",
       {
         plan,
         value: meta.value,
         button_location: buttonLocation,
-        source: "printmedia_landing",
+        source: "presell_landing",
       },
     ]);
   } catch (e) {
