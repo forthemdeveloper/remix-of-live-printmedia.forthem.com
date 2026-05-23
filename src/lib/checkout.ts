@@ -3,6 +3,7 @@ const AF_PLUS_PRODUCT = "44792925257894";
 const PLAN_ANNUAL = "1574994086";
 const PLAN_QUARTERLY = "1580236966";
 const ISSUE_02 = "56214999859366";
+const ISSUE_00 = "46416228581542"; // one-off single-issue now ships #00 (running low on #02)
 const STICKER_PACK = "46400215023782";
 
 const utm = (campaign: string) =>
@@ -11,7 +12,7 @@ const utm = (campaign: string) =>
 export const CART_URLS = {
   annual: `https://forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D${AF_PLUS_PRODUCT}%26items%5B0%5D%5Bselling_plan%5D%3D${PLAN_ANNUAL}%26items%5B0%5D%5Bquantity%5D%3D1%26items%5B1%5D%5Bid%5D%3D${ISSUE_02}%26items%5B1%5D%5Bquantity%5D%3D1%26items%5B2%5D%5Bid%5D%3D${STICKER_PACK}%26items%5B2%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout${utm("annual_membership")}`,
   quarterly: `https://forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D${AF_PLUS_PRODUCT}%26items%5B0%5D%5Bselling_plan%5D%3D${PLAN_QUARTERLY}%26items%5B0%5D%5Bquantity%5D%3D1%26items%5B1%5D%5Bid%5D%3D${ISSUE_02}%26items%5B1%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout${utm("quarterly_membership")}`,
-  zineOnly: `https://forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D${ISSUE_02}%26items%5B0%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout${utm("issue02_magazine_only")}`,
+  zineOnly: `https://forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D${ISSUE_00}%26items%5B0%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout${utm("issue00_magazine_only")}`,
 } as const;
 
 export type Plan = keyof typeof CART_URLS;
@@ -19,7 +20,7 @@ export type Plan = keyof typeof CART_URLS;
 const PLAN_META = {
   annual: { value: 98, label: "Annual", contentIds: [AF_PLUS_PRODUCT, ISSUE_02, STICKER_PACK], itemNames: ["AF+ All-Access Annual", "Autostraddle Print Issue #02", "Very Gay Sticker Pack"], numItems: 3 },
   quarterly: { value: 28, label: "Quarterly", contentIds: [AF_PLUS_PRODUCT, ISSUE_02], itemNames: ["AF+ All-Access Quarterly", "Autostraddle Print Issue #02"], numItems: 2 },
-  zineOnly: { value: 30, label: "ZineOnly", contentIds: [ISSUE_02], itemNames: ["Autostraddle Print Issue #02"], numItems: 1 },
+  zineOnly: { value: 30, label: "ZineOnly", contentIds: [ISSUE_00], itemNames: ["Autostraddle Print Issue #00"], numItems: 1 },
 } as const;
 
 declare global {

@@ -81,7 +81,7 @@ const PricingComparison = () => {
 
             <ul className="space-y-3 mb-8">
               {[
-                { text: "Latest limited edition print issue", included: true },
+                { text: "Our first limited edition print issue", included: true },
                 { text: "Physical zine shipped to you", included: true },
                 { text: "Support queer media", included: true },
                 { text: "30% off all products", included: false },
