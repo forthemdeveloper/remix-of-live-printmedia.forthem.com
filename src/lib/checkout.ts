@@ -4,7 +4,7 @@ const PLAN_ANNUAL = "1574994086";
 const PLAN_QUARTERLY = "1580236966";
 const ISSUE_02 = "56214999859366";
 const ISSUE_00 = "46416228581542"; // one-off single-issue now ships #00 (running low on #02)
-const STICKER_PACK = "46400215023782";
+const STICKER_PACK = "56480730349734";
 
 const utm = (campaign: string) =>
   `%3Futm_source%3Dmagazine%26utm_medium%3Dlanding_page%26utm_campaign%3D${campaign}`;
@@ -18,7 +18,7 @@ export const CART_URLS = {
 export type Plan = keyof typeof CART_URLS;
 
 const PLAN_META = {
-  annual: { value: 98, label: "Annual", contentIds: [AF_PLUS_PRODUCT, ISSUE_02, STICKER_PACK], itemNames: ["AF+ All-Access Annual", "Autostraddle Print Issue #02", "Very Gay Sticker Pack"], numItems: 3 },
+  annual: { value: 98, label: "Annual", contentIds: [AF_PLUS_PRODUCT, ISSUE_02, STICKER_PACK], itemNames: ["AF+ All-Access Annual", "Autostraddle Print Issue #02", "Very Gay Sticker Pack - Eating Out"], numItems: 3 },
   quarterly: { value: 28, label: "Quarterly", contentIds: [AF_PLUS_PRODUCT, ISSUE_02], itemNames: ["AF+ All-Access Quarterly", "Autostraddle Print Issue #02"], numItems: 2 },
   zineOnly: { value: 30, label: "ZineOnly", contentIds: [ISSUE_00], itemNames: ["Autostraddle Print Issue #00"], numItems: 1 },
 } as const;
